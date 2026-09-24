@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sign in to your Mira marketplace account.">
+  <title>Sign in | Mira</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/index.css">
+  <link rel="stylesheet" href="assets/css/signin.css">
+</head>
+<body class="signin-page">
+  <a class="skip-link" href="#signin-form">Skip to sign-in form</a>
+  <header class="signup-header">
+    <a class="brand" href="index.html" aria-label="Mira home"><span>m</span><span>i</span><span>r</span><span>a</span></a>
+    <p>New to Mira? <a class="signin-link" href="signup.html">Create an account</a></p>
+  </header>
+  <main class="signin-main">
+    <section class="signin-card" aria-labelledby="signin-title">
+      <p class="eyebrow">WELCOME BACK</p>
+      <h1 id="signin-title">Sign in to Mira</h1>
+      <p class="signin-lead">Pick up where you left off and discover something new.</p>
+      <form id="signin-form" action="account.html">
+        <div class="field"><label for="signin-email">Email address</label><input id="signin-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com"></div>
+        <div class="field"><label for="signin-password">Password</label><input id="signin-password" name="password" type="password" required minlength="6" autocomplete="current-password" placeholder="Your password"></div>
+        <div class="signin-options"><label><input type="checkbox"> Keep me signed in</label><a href="help.html">Forgot password?</a></div>
+        <button class="create-account" type="submit">Sign in</button>
+      </form>
+      <p class="or"><span>or</span></p>
+      <a class="social-button signin-social" href="signup.html">Create a new account</a>
+    </section>
+  </main>
+  <footer class="signup-footer"><a href="help.html">Help &amp; Contact</a><a href="index.html">Mira home</a><span>&copy; 2026 Mira Marketplace Demo</span></footer>
+</body>
+</html>

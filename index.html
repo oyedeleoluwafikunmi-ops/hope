@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mira is a responsive marketplace homepage demonstration.">
+    <title>Mira | Marketplace</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&family=Montserrat:wght@500;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="assets/css/index.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header>
+      <div class="utility-bar wrapper">
+        <p>Hi! <a href="signin.html">Sign in</a> or <a href="signup.html">register</a>
+      </p>
+      <div class="utility-links">
+        <a href="#deals">Daily Deals</a>
+        <a href="help.html">Help & Contact</a>
+        <a href="sell.html">Sell</a>
+        <div class="header-menu">
+          <button class="text-button menu-trigger" aria-expanded="false">Watchlist <span class="material-symbols-outlined">keyboard_arrow_down</span>
+        </button>
+        <div class="dropdown-menu">
+          <a href="watchlist.html">Saved items</a>
+          <a href="watchlist.html">Searches you follow</a>
+        </div>
+      </div>
+      <div class="header-menu">
+        <button class="text-button menu-trigger" aria-expanded="false">My Mira <span class="material-symbols-outlined">keyboard_arrow_down</span>
+      </button>
+      <div class="dropdown-menu">
+        <a href="account.html">Summary</a>
+        <a href="account.html#purchases">Purchases</a>
+        <a href="account.html#selling">Selling</a>
+      </div>
+    </div>
+    <a class="icon-button" href="cart.html" aria-label="Shopping cart">
+      <span class="material-symbols-outlined">shopping_cart</span>
+      <b id="cart-count">0</b>
+    </a>
+  </div>
+</div>
+<div class="search-row wrapper">
+  <div class="category-menu">
+    <button class="category-trigger menu-trigger" aria-expanded="false" aria-label="Open categories">
+      <span class="material-symbols-outlined">menu</span>
+      <span>Shop by<br>category</span>
+    </button>
+    <div class="dropdown-menu category-dropdown">
+      <a href="browse.html?category=Electronics">Electronics</a>
+      <a href="browse.html?category=Fashion">Fashion</a>
+      <a href="browse.html?category=Home%20%26%20Garden">Home &amp; Garden</a>
+      <a href="browse.html?category=Sporting%20Goods">Sporting Goods</a>
+      <a href="browse.html?category=Collectibles">Collectibles</a>
+    </div>
+  </div>
+  <a class="brand" href="index.html" aria-label="Mira home">
+    <span>m</span>
+    <span>i</span>
+    <span>r</span>
+    <span>a</span>
+  </a>
+  <form class="search-form" id="search-form">
+    <span class="material-symbols-outlined search-icon">search</span>
+    <input id="search-input" type="search" placeholder="Search for anything" aria-label="Search for anything">
+    <select aria-label="Category">
+      <option>All Categories</option>
+      <option>Electronics</option>
+      <option>Fashion</option>
+      <option>Home & Garden</option>
+    </select>
+    <button type="submit">Search</button>
+  </form>
+  <a class="advanced-link" href="browse.html">Advanced</a>
+  <button class="mobile-menu icon-button" aria-label="Open menu">
+    <span class="material-symbols-outlined">menu</span>
+  </button>
+</div>
+<nav class="category-nav" aria-label="Main navigation">
+  <div class="wrapper">
+    <a href="browse.html">Explore</a>
+    <a href="watchlist.html">Saved</a>
+    <a href="browse.html?category=Motors">Motors</a>
+    <a href="browse.html?category=Electronics">Electronics</a>
+    <a href="browse.html?category=Collectibles">Collectibles</a>
+    <a href="browse.html?category=Home%20%26%20Garden">Home &amp; Garden</a>
+    <a href="browse.html?category=Fashion">Fashion</a>
+    <a href="browse.html?category=Toys">Toys</a>
+    <a href="browse.html?category=Sporting%20Goods">Sporting Goods</a>
+    <a href="browse.html?category=Refurbished">Refurbished</a>
+  </div>
+</nav>
+<div class="mobile-links" aria-label="Mobile navigation">
+  <a href="browse.html">Explore</a>
+  <a href="watchlist.html">Saved</a>
+  <a href="sell.html">Sell</a>
+  <a href="account.html">My Mira</a>
+  <a href="help.html">Help</a>
+</div>
+</header>
+<main id="main-content">
+  <section class="hero wrapper">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="signal-dot"></span> MEET MIRA SIGNAL</p>
+      <h1>Find your<br>
+      <em>feeling.</em>
+    </h1>
+    <p>From everyday essentials to one-of-a-kind treasures, there’s something waiting for you.</p>
+    <a class="button button-dark" href="#deals">Shop the deals <span class="material-symbols-outlined">arrow_forward</span>
+  </a>
+<div class="signal-picker" aria-labelledby="signal-question">
+  <p id="signal-question">What are you in the mood for?</p>
+  <div class="signal-options" role="group" aria-label="Choose a shopping mood">
+    <button class="signal-option active" type="button" data-signal="surprise" aria-pressed="true"><span>✦</span> Surprise me</button>
+    <button class="signal-option" type="button" data-signal="upgrade" aria-pressed="false"><span>↗</span> A little upgrade</button>
+    <button class="signal-option" type="button" data-signal="gift" aria-pressed="false"><span>♡</span> A great gift</button>
+    <button class="signal-option" type="button" data-signal="weekend" aria-pressed="false"><span>☀</span> Weekend energy</button>
+  </div>
+  <div class="signal-result" aria-live="polite"><span class="material-symbols-outlined">auto_awesome</span><p id="signal-result-text"><strong>Your Signal:</strong> unexpected finds with a story.</p></div>
+  <a class="button button-dark signal-cta" id="signal-cta" href="browse.html">Follow this Signal <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+</div>
+<div class="hero-art" aria-hidden="true">
+  <img src="assets/images/hero.jpg" alt="">
+  <span class="floating-tag signal-tag"><span class="material-symbols-outlined">radar</span> Signal is live<br>
+  <strong>4,812 fresh paths</strong>
+</span>
+</div>
+</section>
+<section class="wrapper categories section-space" aria-labelledby="category-title">
+  <div class="section-heading">
+    <h2 id="category-title">Explore popular categories</h2>
+    <a href="browse.html">See all categories <span class="material-symbols-outlined">arrow_forward</span>
+  </a>
+</div>
+<div class="category-grid">
+  <a href="browse.html?category=Electronics" class="category-card blue">
+    <span class="material-symbols-outlined">devices</span>
+    <strong>Electronics</strong>
+    <small>Tech for every day</small>
+  </a>
+  <a href="browse.html?category=Fashion" class="category-card coral">
+    <span class="material-symbols-outlined">apparel</span>
+    <strong>Fashion</strong>
+    <small>Your style, your way</small>
+  </a>
+  <a href="browse.html?category=Home%20%26%20Garden" class="category-card yellow">
+    <span class="material-symbols-outlined">weekend</span>
+    <strong>Home &amp; Garden</strong>
+    <small>Make space yours</small>
+  </a>
+  <a href="browse.html?category=Sporting%20Goods" class="category-card mint">
+    <span class="material-symbols-outlined">sports_soccer</span>
+    <strong>Sporting Goods</strong>
+    <small>Get moving</small>
+  </a>
+  <a href="browse.html?category=Collectibles" class="category-card lavender">
+    <span class="material-symbols-outlined">toys</span>
+    <strong>Collectibles</strong>
+    <small>Discover the rare</small>
+  </a>
+  <a href="browse.html?category=Motors" class="category-card orange">
+    <span class="material-symbols-outlined">directions_car</span>
+    <strong>Parts &amp; Motors</strong>
+    <small>Built for the road</small>
+  </a>
+</div>
+</section>
+<section class="deals-section" id="deals">
+  <div class="wrapper section-space">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">TODAY ONLY</p>
+        <h2>Deals you won’t want to miss</h2>
+      </div>
+      <div class="deal-controls">
+        <button class="arrow" id="prev-deal" aria-label="Previous deals">
+          <span class="material-symbols-outlined">arrow_back</span>
+        </button>
+        <button class="arrow" id="next-deal" aria-label="Next deals">
+          <span class="material-symbols-outlined">arrow_forward</span>
+        </button>
+      </div>
+    </div>
+    <div class="product-grid" id="product-grid">
+      <article class="product-card">
+        <button class="heart" aria-label="Save Wireless headphones">
+          <span class="material-symbols-outlined">favorite</span>
+        </button>
+        <img src="assets/images/headphones.jpg" alt="Black wireless headphones">
+        <div>
+          <p class="condition">Certified Refurbished</p>
+          <h3>Wireless noise cancelling headphones</h3>
+          <p class="price">$89.99 <del>$149.99</del>
+        </p>
+        <p class="shipping">Free shipping</p>
+        <button class="add-cart" data-product="Wireless headphones">Add to cart</button>
+      </div>
+    </article>
+    <article class="product-card">
+      <button class="heart" aria-label="Save smartphone">
+        <span class="material-symbols-outlined">favorite</span>
+      </button>
+      <img src="assets/images/phone.jpg" alt="Modern smartphone">
+      <div>
+        <p class="condition">Excellent condition</p>
+        <h3>Unlocked 128GB smartphone</h3>
+        <p class="price">$269.00</p>
+        <p class="shipping">Free shipping</p>
+        <button class="add-cart" data-product="Smartphone">Add to cart</button>
+      </div>
+    </article>
+    <article class="product-card">
+      <button class="heart" aria-label="Save wristwatch">
+        <span class="material-symbols-outlined">favorite</span>
+      </button>
+      <img src="assets/images/watch.jpg" alt="Classic wristwatch">
+      <div>
+        <p class="condition">Pre-owned</p>
+        <h3>Classic stainless steel watch</h3>
+        <p class="price">$124.50 <del>$175.00</del>
+      </p>
+      <p class="shipping">Free shipping</p>
+      <button class="add-cart" data-product="Wristwatch">Add to cart</button>
+    </div>
+  </article>
+  <article class="product-card">
+    <button class="heart" aria-label="Save sneakers">
+      <span class="material-symbols-outlined">favorite</span>
+    </button>
+    <img src="assets/images/sneakers.jpg" alt="Red running sneakers">
+    <div>
+      <p class="condition">New with box</p>
+      <h3>Everyday running sneakers</h3>
+      <p class="price">$64.99</p>
+      <p class="shipping">Free shipping</p>
+      <button class="add-cart" data-product="Running sneakers">Add to cart</button>
+    </div>
+  </article>
+</div>
+</div>
+</section>
+<section class="wrapper section-space value-section">
+  <div>
+    <p class="eyebrow">SHOP WITH CONFIDENCE</p>
+    <h2>Good finds. Better peace of mind.</h2>
+  </div>
+  <div class="value-grid">
+    <article>
+      <span class="material-symbols-outlined">verified_user</span>
+      <h3>Money Back Guarantee</h3>
+      <p>Get the item you ordered or your money back. It’s that simple.</p>
+    </article>
+    <article>
+      <span class="material-symbols-outlined">local_shipping</span>
+      <h3>Fast, free delivery</h3>
+      <p>Enjoy free delivery on millions of eligible items.</p>
+    </article>
+    <article>
+      <span class="material-symbols-outlined">workspace_premium</span>
+      <h3>Authenticity checks</h3>
+      <p>Expert verification on selected fashion, watches, and more.</p>
+    </article>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrapper footer-content">
+    <a class="brand" href="index.html" aria-label="Mira home">
+      <span>m</span>
+      <span>i</span>
+      <span>r</span>
+      <span>a</span>
+    </a>
+    <p>© 2026 Mira Marketplace Demo. Built for learning.</p>
+    <div>
+      <a href="browse.html">Browse</a>
+      <a href="watchlist.html">Watchlist</a>
+      <a href="account.html">My Mira</a>
+      <a href="sell.html">Sell</a>
+      <a href="help.html">Help</a>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite">
+</div>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

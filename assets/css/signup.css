@@ -1,0 +1,4 @@
+/* Create-account page refinements */
+.signup-card { border-top:4px solid #3665f3; }
+.create-account:hover { background:#214bd0; }
+.social-button:hover { background:#f5f7ff; }
