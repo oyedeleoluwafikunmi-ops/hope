@@ -58,10 +58,10 @@
     updateCount(); toast(`${title} added to cart`);
   }));
   const signals = {
-    surprise: { text: 'unexpected finds with a story.', href: 'browse.html?signal=surprise', label: 'Follow this Signal' },
-    upgrade: { text: 'small upgrades that make every day feel better.', href: 'browse.html?signal=upgrade', label: 'Explore upgrades' },
-    gift: { text: 'thoughtful finds worth giving twice.', href: 'browse.html?signal=gift', label: 'Find a gift' },
-    weekend: { text: 'a little more fun for your next two days.', href: 'browse.html?signal=weekend', label: 'Catch the vibe' }
+    surprise: { text: 'unexpected finds with a story.', href: 'views/browse.html?signal=surprise', label: 'Follow this Signal' },
+    upgrade: { text: 'small upgrades that make every day feel better.', href: 'views/browse.html?signal=upgrade', label: 'Explore upgrades' },
+    gift: { text: 'thoughtful finds worth giving twice.', href: 'views/browse.html?signal=gift', label: 'Find a gift' },
+    weekend: { text: 'a little more fun for your next two days.', href: 'views/browse.html?signal=weekend', label: 'Catch the vibe' }
   };
   document.querySelectorAll('.signal-option').forEach((button) => button.addEventListener('click', () => {
     const signal = signals[button.dataset.signal];
@@ -80,7 +80,7 @@
     event.preventDefault();
     const query = document.querySelector('#search-input')?.value.trim();
     if (!query) { toast('Type something to search'); return; }
-    location.href = `browse.html?search=${encodeURIComponent(query)}`;
+    location.href = `views/browse.html?search=${encodeURIComponent(query)}`;
   });
   updateCount();
   const topButton = document.createElement('button');

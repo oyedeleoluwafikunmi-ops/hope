@@ -3,19 +3,19 @@
   const watchlistKey = 'mira-watchlist';
   // Every product photo is stored locally in assets/images so Signal collections work offline too.
   const inventory = [
-    ['Wireless noise cancelling headphones', 89.99, 'Electronics', 'assets/images/headphones.jpg', ['surprise', 'upgrade', 'gift']],
-    ['Unlocked 128GB smartphone', 269, 'Electronics', 'assets/images/phone.jpg', ['surprise', 'upgrade']],
-    ['Classic stainless steel watch', 124.5, 'Fashion', 'assets/images/watch.jpg', ['surprise', 'upgrade', 'gift']],
-    ['Everyday running sneakers', 64.99, 'Fashion', 'assets/images/sneakers.jpg', ['weekend', 'surprise']],
-    ['Modern home accent', 39.99, 'Home & Garden', 'assets/images/home.jpg', ['surprise', 'gift']],
-    ['Beauty essentials set', 28.5, 'Home & Garden', 'assets/images/beauty.jpg', ['gift', 'weekend']],
-    ['Ready-to-give surprise box', 42, 'Gifts', 'assets/images/gift-box.jpg', ['gift', 'surprise']],
-    ['Vintage camera kit', 219, 'Collectibles', 'assets/images/camera.jpg', ['gift', 'surprise']],
-    ['Everyday city backpack', 55, 'Fashion', 'assets/images/backpack.jpg', ['weekend', 'surprise']],
-    ['Glow portable speaker', 69.99, 'Electronics', 'assets/images/speaker.jpg', ['upgrade', 'weekend', 'gift']],
-    ['Desk refresh essentials', 49.99, 'Home & Garden', 'assets/images/home.jpg', ['upgrade']],
-    ['Everyday tech upgrade', 119, 'Electronics', 'assets/images/headphones.jpg', ['upgrade', 'weekend']],
-    ['Pocket-ready phone find', 199, 'Electronics', 'assets/images/phone.jpg', ['surprise', 'gift']]
+    ['Wireless noise cancelling headphones', 89.99, 'Electronics', '../assets/images/headphones.jpg', ['surprise', 'upgrade', 'gift']],
+    ['Unlocked 128GB smartphone', 269, 'Electronics', '../assets/images/phone.jpg', ['surprise', 'upgrade']],
+    ['Classic stainless steel watch', 124.5, 'Fashion', '../assets/images/watch.jpg', ['surprise', 'upgrade', 'gift']],
+    ['Everyday running sneakers', 64.99, 'Fashion', '../assets/images/sneakers.jpg', ['weekend', 'surprise']],
+    ['Modern home accent', 39.99, 'Home & Garden', '../assets/images/home.jpg', ['surprise', 'gift']],
+    ['Beauty essentials set', 28.5, 'Home & Garden', '../assets/images/beauty.jpg', ['gift', 'weekend']],
+    ['Ready-to-give surprise box', 42, 'Gifts', '../assets/images/gift-box.jpg', ['gift', 'surprise']],
+    ['Vintage camera kit', 219, 'Collectibles', '../assets/images/camera.jpg', ['gift', 'surprise']],
+    ['Everyday city backpack', 55, 'Fashion', '../assets/images/backpack.jpg', ['weekend', 'surprise']],
+    ['Glow portable speaker', 69.99, 'Electronics', '../assets/images/speaker.jpg', ['upgrade', 'weekend', 'gift']],
+    ['Desk refresh essentials', 49.99, 'Home & Garden', '../assets/images/home.jpg', ['upgrade']],
+    ['Everyday tech upgrade', 119, 'Electronics', '../assets/images/headphones.jpg', ['upgrade', 'weekend']],
+    ['Pocket-ready phone find', 199, 'Electronics', '../assets/images/phone.jpg', ['surprise', 'gift']]
   ];
   const getCart = () => JSON.parse(localStorage.getItem(cartKey) || '[]');
   const getWatchlist = () => JSON.parse(localStorage.getItem(watchlistKey) || '[]');
@@ -23,6 +23,7 @@
   const saveCart = (cart) => localStorage.setItem(cartKey, JSON.stringify(cart));
   const updateCount = () => { document.querySelectorAll('#cart-count').forEach((el) => el.textContent = getCart().reduce((n, item) => n + item.quantity, 0)); };
   const money = (value) => `$${value.toFixed(2)}`;
+  const imgSrc = (image) => (image && image.startsWith('assets/') ? `../${image}` : image);
   const add = (product) => { const cart = getCart(); const item = cart.find((entry) => entry.title === product.title); if (item) item.quantity++; else cart.push({ ...product, quantity:1 }); saveCart(cart); updateCount(); };
   const results = document.querySelector('#results');
   if (results) {
@@ -77,7 +78,7 @@
   if (watchlistItems) {
     const renderWatchlist = () => {
       const saved = getWatchlist();
-      watchlistItems.innerHTML = saved.length ? `<div class="watchlist-grid">${saved.map((item, index) => `<article class="mini-product"><button class="heart saved" type="button" data-remove="${index}" aria-label="Remove ${item.title} from watchlist"><span class="material-symbols-outlined">favorite</span></button><img src="${item.image}" alt="${item.title}"><p class="product-type">${item.type || 'Saved item'}</p><h2>${item.title}</h2><p>${money(Number(item.price))}</p><button class="add-cart" type="button" data-add="${index}">Add to cart</button></article>`).join('')}</div>` : '<section class="content-card empty-state"><span class="material-symbols-outlined">favorite</span><h2>Nothing saved yet</h2><p>Explore the marketplace and tap the heart on an item you love.</p><a class="primary-button" href="browse.html">Explore items</a></section>';
+      watchlistItems.innerHTML = saved.length ? `<div class="watchlist-grid">${saved.map((item, index) => `<article class="mini-product"><button class="heart saved" type="button" data-remove="${index}" aria-label="Remove ${item.title} from watchlist"><span class="material-symbols-outlined">favorite</span></button><img src="${imgSrc(item.image)}" alt="${item.title}"><p class="product-type">${item.type || 'Saved item'}</p><h2>${item.title}</h2><p>${money(Number(item.price))}</p><button class="add-cart" type="button" data-add="${index}">Add to cart</button></article>`).join('')}</div>` : '<section class="content-card empty-state"><span class="material-symbols-outlined">favorite</span><h2>Nothing saved yet</h2><p>Explore the marketplace and tap the heart on an item you love.</p><a class="primary-button" href="browse.html">Explore items</a></section>';
       watchlistItems.querySelectorAll('[data-remove]').forEach((button) => button.addEventListener('click', () => { const saved = getWatchlist(); saved.splice(Number(button.dataset.remove), 1); saveWatchlist(saved); renderWatchlist(); }));
       watchlistItems.querySelectorAll('[data-add]').forEach((button) => button.addEventListener('click', () => { const item = getWatchlist()[Number(button.dataset.add)]; add({ ...item }); button.textContent = 'Added to cart'; button.classList.add('added'); }));
     };
@@ -85,7 +86,7 @@
   }
   const cartItems = document.querySelector('#cart-items');
   if (cartItems) {
-    const render = () => { const cart = getCart(); const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0); cartItems.innerHTML = cart.length ? cart.map((item, index) => `<article class="cart-item"><img src="${item.image}" alt="${item.title}"><div><h3>${item.title}</h3><p>${money(item.price)} · Free shipping</p><div class="quantity-control"><button data-change="-1" data-index="${index}" aria-label="Remove one">−</button><span>${item.quantity}</span><button data-change="1" data-index="${index}" aria-label="Add one">+</button><button class="remove-item" data-remove="${index}">Remove</button></div></div><strong>${money(item.price * item.quantity)}</strong></article>`).join('') : '<div class="empty-state"><span class="material-symbols-outlined">shopping_cart</span><h2>Your cart is empty</h2><p>Find something special and it will appear here.</p><a class="primary-button" href="browse.html">Explore items</a></div>';
+    const render = () => { const cart = getCart(); const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0); cartItems.innerHTML = cart.length ? cart.map((item, index) => `<article class="cart-item"><img src="${imgSrc(item.image)}" alt="${item.title}"><div><h3>${item.title}</h3><p>${money(item.price)} · Free shipping</p><div class="quantity-control"><button data-change="-1" data-index="${index}" aria-label="Remove one">−</button><span>${item.quantity}</span><button data-change="1" data-index="${index}" aria-label="Add one">+</button><button class="remove-item" data-remove="${index}">Remove</button></div></div><strong>${money(item.price * item.quantity)}</strong></article>`).join('') : '<div class="empty-state"><span class="material-symbols-outlined">shopping_cart</span><h2>Your cart is empty</h2><p>Find something special and it will appear here.</p><a class="primary-button" href="browse.html">Explore items</a></div>';
       document.querySelector('#cart-total').textContent = money(total); document.querySelector('#cart-total-copy').textContent = money(total);
       cartItems.querySelectorAll('[data-change]').forEach((button) => button.addEventListener('click', () => { const next = getCart(); const i = Number(button.dataset.index); next[i].quantity += Number(button.dataset.change); if (next[i].quantity < 1) next.splice(i, 1); saveCart(next); updateCount(); render(); }));
       cartItems.querySelectorAll('[data-remove]').forEach((button) => button.addEventListener('click', () => { const next = getCart(); next.splice(Number(button.dataset.remove), 1); saveCart(next); updateCount(); render(); }));
